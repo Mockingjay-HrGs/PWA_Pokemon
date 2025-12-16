@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');  body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: #faf9fc;
+    color: #2e2a4a;
+}
+
+h1, h2, h3 {
+    margin: 0;
+}
+
+.section {
+    padding: 60px 10%;
+}
+
+.section-title {
+    font-size: 2rem;
+    color: #4c40c0;
+    margin-bottom: 30px;
+}
+
+
+
+/* Thème clair par défaut */
+:root {
+    --bg-color: #faf9fc;
+    --text-color: #2e2a4a;
+    --card-bg: #f3f1fb;
+    --card-soft: #eee9ff;
+    --accent: #4c40c0;
+}
+
+/* Thème sombre */
+:root[data-theme="dark"] {
+    --bg-color: #15141f;
+    --text-color: #f5f3ff;
+    --card-bg: #222033;
+    --card-soft: #2d2942;
+    --accent: #9f8bff;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* titres gardent la couleur accent */
+.section-title,
+.hero-right h1 {
+    color: var(--accent);
+}
