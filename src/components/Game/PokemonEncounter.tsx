@@ -34,7 +34,7 @@ const fetchPokemon = async (id: number): Promise<PokemonData> => {
         image: isShiny ? data.sprites.front_shiny : data.sprites.front_default,
         types: data.types.map((t) => t.type.name),
         isShiny,
-        isFavorite: false,         // 👈 NEW
+        isFavorite: false,
     };
 };
 
@@ -73,11 +73,9 @@ const PokemonEncounter: React.FC = () => {
         }
     }, []);
 
-    // Chargement initial
     useEffect(() => {
         void generateNewPokemon();
 
-        // on demande subtilement la permission au chargement
         if (permission === "default") {
             void requestPermission();
         }
@@ -95,7 +93,6 @@ const PokemonEncounter: React.FC = () => {
     const tryCatch = (): void => {
         if (!pokemon || status === "success" || status === "flee") return;
 
-        // Équipe pleine → ouvrir la modale
         if (team.length >= 6) {
             setIsModalOpen(true);
             return;
@@ -114,8 +111,6 @@ const PokemonEncounter: React.FC = () => {
         }
 
 
-
-        // Sinon → tentative ratée
         setAttempt((prev) => {
             const next = prev + 1;
             if (next >= MAX_ATTEMPTS) {

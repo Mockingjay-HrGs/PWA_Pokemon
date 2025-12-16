@@ -12,6 +12,6 @@ export interface PokedexEntry {
     name: string;
     image: string;
     types: string[];
-    count: number;      // nombre de captures
-    hasShiny: boolean;  // au moins un shiny capturé ?
+    count: number;
+    hasShiny: boolean;
 }

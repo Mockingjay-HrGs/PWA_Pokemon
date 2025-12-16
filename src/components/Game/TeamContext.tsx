@@ -11,7 +11,7 @@ type TeamContextValue = {
     team: PokemonData[];
     addPokemon: (pokemon: PokemonData) => "added" | "full";
     removePokemon: (id: number) => void;
-    toggleFavorite: (id: number) => void;     // 👈 NEW
+    toggleFavorite: (id: number) => void;
 };
 
 const TeamContext = createContext<TeamContextValue | undefined>(undefined);
@@ -24,7 +24,6 @@ const loadTeamFromStorage = (): PokemonData[] => {
     if (!raw) return [];
     try {
         const parsed = JSON.parse(raw) as PokemonData[];
-        // si ancien format sans isFavorite → on met false
         return parsed.map((p) => ({
             ...p,
             isFavorite: p.isFavorite ?? false,

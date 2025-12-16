@@ -57,7 +57,7 @@ export const PokedexProvider: React.FC<Props> = ({ children }) => {
                             ...e,
                             count: e.count + 1,
                             hasShiny: e.hasShiny || pokemon.isShiny,
-                            image: pokemon.image, // on garde l’image récente
+                            image: pokemon.image,
                         }
                         : e
                 );

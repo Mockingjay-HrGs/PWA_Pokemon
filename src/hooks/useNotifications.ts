@@ -38,7 +38,6 @@ export const useNotifications = () => {
     const notifyShiny = useCallback(
         (pokemonId: number, pokemonName: string) => {
             if (permission !== "granted") return;
-            // évite les doubles notif en StrictMode
             if (lastShinyIdRef.current === pokemonId) return;
             lastShinyIdRef.current = pokemonId;
 

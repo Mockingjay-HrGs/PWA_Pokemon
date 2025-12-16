@@ -24,7 +24,6 @@ type Props = {
 export const ThemeProvider: React.FC<Props> = ({ children }) => {
     const [theme, setTheme] = useState<Theme>("light");
 
-    // Chargement de la préférence
     useEffect(() => {
         if (typeof window === "undefined") return;
         const stored = window.localStorage.getItem(THEME_KEY);
@@ -33,7 +32,6 @@ export const ThemeProvider: React.FC<Props> = ({ children }) => {
         }
     }, []);
 
-    // Application du thème + persistance
     useEffect(() => {
         if (typeof document !== "undefined") {
             document.documentElement.dataset.theme = theme;
